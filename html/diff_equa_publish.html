@@ -1,0 +1,360 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>&#29992;&#26494;&#24347;&#36845;&#20195;&#27861;&#27714;&#35299;&#22914;&#19979;&#20108;&#32500;&#26925;&#22278;&#20559;&#24494;&#20998;&#26041;&#31243;:</title><meta name="generator" content="MATLAB 8.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2016-04-21"><meta name="DC.source" content="diff_equa_publish.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>&#29992;&#26494;&#24347;&#36845;&#20195;&#27861;&#27714;&#35299;&#22914;&#19979;&#20108;&#32500;&#26925;&#22278;&#20559;&#24494;&#20998;&#26041;&#31243;:</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">&#38382;&#39064;</a></li><li><a href="#4">plot the figure of    <img src="diff_equa_publish_eq09250458956798851649.png" alt="$\varphi$"></a></li></ul></div><h2>&#38382;&#39064;<a name="1"></a></h2><p><img src="diff_equa_publish_eq01635557747199584637.png" alt="$$\begin{array}{l} - [\frac{{{\partial ^2}}}{{\partial {x^2}}} + \frac{{{\partial ^2}}}{{\partial {y^2}}}]\varphi  = S(x,y)\\&#xA;S(x,y) = 2xy\\\varphi (0,y) = \varphi (x,0) = 0\\\varphi (1,y) = \varphi (x,1) = 0\end{array}$$"></p><pre class="codeinput">                    clear;clc;
+                    N=100;
+                    h=1./N;
+                    w=1.5;
+                    <span class="keyword">for</span> i=1:N+1
+                        <span class="keyword">for</span> j=1:N+1
+                            x=(i-1)*h;
+                             y=(j-1)*h;
+                             s(i,j)=2.*x*y;
+                             phi(i,j)=0.;
+                        <span class="keyword">end</span>
+                    <span class="keyword">end</span>
+                     <span class="keyword">for</span>  ite=1:1000
+                         <span class="keyword">for</span> i=2:N  <span class="comment">% notice that this time the range of i is different from the previous one due to the boundary limit.</span>
+                             <span class="keyword">for</span> j=2:N
+                                 phi(i,j)=(1-w)*phi(i,j)+w/4.*(phi(i+1,j)+phi(i-1,j)+phi(i,j+1)+phi(i,j-1)+h^2.*s(i,j));
+                             <span class="keyword">end</span>
+                         <span class="keyword">end</span>
+                         <span class="keyword">if</span> mod(ite-1,20)==0
+                             disp(<span class="string">'Iteration'</span>);
+                             disp(ite);
+                             E=0;
+                             <span class="keyword">for</span> i=2:N
+                                 <span class="keyword">for</span> j=2:N
+                                     E=E+((phi(i,j)-phi(i-1,j))^2.+(phi(i,j)-phi(i,j-1))^2.)/2.-h^2.*s(i,j)*phi(i,j);
+                                 <span class="keyword">end</span>
+                             <span class="keyword">end</span>
+                             disp(<span class="string">'Energy'</span>);
+                             disp(E);
+                         <span class="keyword">end</span>
+                     <span class="keyword">end</span>
+</pre><pre class="codeoutput">Iteration
+     1
+Energy
+    -6.180354803184013e-05
+Iteration
+    21
+Energy
+    -9.927892855066244e-04
+Iteration
+    41
+Energy
+  -0.001674593415556
+Iteration
+    61
+Energy
+  -0.002221681270674
+Iteration
+    81
+Energy
+  -0.002675487634143
+Iteration
+   101
+Energy
+  -0.003059081145330
+Iteration
+   121
+Energy
+  -0.003387382953717
+Iteration
+   141
+Energy
+  -0.003670873065084
+Iteration
+   161
+Energy
+  -0.003917310709671
+Iteration
+   181
+Energy
+  -0.004132655915927
+Iteration
+   201
+Energy
+  -0.004321612791071
+Iteration
+   221
+Energy
+  -0.004487972647934
+Iteration
+   241
+Energy
+  -0.004634842292158
+Iteration
+   261
+Energy
+  -0.004764802203179
+Iteration
+   281
+Energy
+  -0.004880019767170
+Iteration
+   301
+Energy
+  -0.004982332525642
+Iteration
+   321
+Energy
+  -0.005073310757532
+Iteration
+   341
+Energy
+  -0.005154305423467
+Iteration
+   361
+Energy
+  -0.005226485501666
+Iteration
+   381
+Energy
+  -0.005290867484433
+Iteration
+   401
+Energy
+  -0.005348338983828
+Iteration
+   421
+Energy
+  -0.005399677845824
+Iteration
+   441
+Energy
+  -0.005445567795256
+Iteration
+   461
+Energy
+  -0.005486611369449
+Iteration
+   481
+Energy
+  -0.005523340709451
+Iteration
+   501
+Energy
+  -0.005556226640659
+Iteration
+   521
+Energy
+  -0.005585686373791
+Iteration
+   541
+Energy
+  -0.005612090082202
+Iteration
+   561
+Energy
+  -0.005635766555352
+Iteration
+   581
+Energy
+  -0.005657008085730
+Iteration
+   601
+Energy
+  -0.005676074714205
+Iteration
+   621
+Energy
+  -0.005693197933999
+Iteration
+   641
+Energy
+  -0.005708583934325
+Iteration
+   661
+Energy
+  -0.005722416449910
+Iteration
+   681
+Energy
+  -0.005734859270957
+Iteration
+   701
+Energy
+  -0.005746058458950
+Iteration
+   721
+Energy
+  -0.005756144306388
+Iteration
+   741
+Energy
+  -0.005765233072672
+Iteration
+   761
+Energy
+  -0.005773428523630
+Iteration
+   781
+Energy
+  -0.005780823298250
+Iteration
+   801
+Energy
+  -0.005787500123011
+Iteration
+   821
+Energy
+  -0.005793532891491
+Iteration
+   841
+Energy
+  -0.005798987624697
+Iteration
+   861
+Energy
+  -0.005803923325646
+Iteration
+   881
+Energy
+  -0.005808392740075
+Iteration
+   901
+Energy
+  -0.005812443033783
+Iteration
+   921
+Energy
+  -0.005816116395829
+Iteration
+   941
+Energy
+  -0.005819450575827
+Iteration
+   961
+Energy
+  -0.005822479362566
+Iteration
+   981
+Energy
+  -0.005825233010432
+</pre><h2>plot the figure of    <img src="diff_equa_publish_eq09250458956798851649.png" alt="$\varphi$"><a name="4"></a></h2><pre class="codeinput">        figure;
+       [xx,yy] = meshgrid(1:N+1,1:N+1);
+       axis([1,N,1,N]);
+        plot3(xx,yy,phi)
+</pre><img vspace="5" hspace="5" src="diff_equa_publish_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2014b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% 用松弛迭代法求解如下二维椭圆偏微分方程:
+
+%% 问题
+%%
+% 
+% $$\begin{array}{l} - [\frac{{{\partial ^2}}}{{\partial {x^2}}} + \frac{{{\partial ^2}}}{{\partial {y^2}}}]\varphi  = S(x,y)\\
+% S(x,y) = 2xy\\\varphi (0,y) = \varphi (x,0) = 0\\\varphi (1,y) = \varphi (x,1) = 0\end{array}$$
+% 
+
+
+%%
+%                  
+                    clear;clc;
+                    N=100;
+                    h=1./N;
+                    w=1.5;
+                    for i=1:N+1
+                        for j=1:N+1
+                            x=(i-1)*h;
+                             y=(j-1)*h;
+                             s(i,j)=2.*x*y;
+                             phi(i,j)=0.;
+                        end
+                    end
+                     for  ite=1:1000
+                         for i=2:N  % notice that this time the range of i is different from the previous one due to the boundary limit.
+                             for j=2:N
+                                 phi(i,j)=(1-w)*phi(i,j)+w/4.*(phi(i+1,j)+phi(i-1,j)+phi(i,j+1)+phi(i,j-1)+h^2.*s(i,j));
+                             end
+                         end
+                         if mod(ite-1,20)==0
+                             disp('Iteration');
+                             disp(ite);
+                             E=0;
+                             for i=2:N
+                                 for j=2:N
+                                     E=E+((phi(i,j)-phi(i-1,j))^2.+(phi(i,j)-phi(i,j-1))^2.)/2.-h^2.*s(i,j)*phi(i,j);
+                                 end
+                             end
+                             disp('Energy');
+                             disp(E);
+                         end
+                     end
+                 
+%% plot the figure of    $\varphi$
+%%
+        figure;
+       [xx,yy] = meshgrid(1:N+1,1:N+1);
+       axis([1,N,1,N]);
+        plot3(xx,yy,phi)
+        
+       
+
+##### SOURCE END #####
+--></body></html>
